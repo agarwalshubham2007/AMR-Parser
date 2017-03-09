@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<amrset name="le-petit-prince" version="1.6" date="2016-03-14" corpus="The Little Prince, a novel by Antoine Saint-Exupery">
+  <sntamr>
+    <sentence id="lpp_1943.46">" Draw me a sheep ! "</sentence>
+    <amr date="2012-07-24T11:30:39">
+(d / draw-01
+  :ARG0 (y / you)
+  :ARG1 (s / sheep)
+  :ARG2 (i / i)
+  :mode imperative)
+    </amr>
+  </sntamr>
+  <sntamr>
+    <sentence id="lpp_1943.1">John went to movie and bought popcorn for his gf.</sentence>
+    <amr date="2012-06-07T17:06:07">
+(p / ponder-01
+      :ARG0 (i / i)
+      :ARG1 (a / adventure
+            :location (j / jungle))
+      :ARG1-of (d / deep-02)
+      :time (t / then))
+    </amr>
+  </sntamr>
+</amrset>
+ 
