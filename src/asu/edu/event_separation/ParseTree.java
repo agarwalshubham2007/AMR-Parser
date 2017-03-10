@@ -126,6 +126,8 @@ public class ParseTree extends event_separation_app{
 						root.childEdge.add(subEdges[0]);
 						root.childNode.add(makeCorefNode(subEdges[0], subEdges[1]));
 					}
+					rightPos++;
+					leftPos = rightPos;
 					return;
 				}
 			}
