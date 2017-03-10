@@ -24,8 +24,10 @@ public class SpanGraph extends Aligner{
 			return;
 		System.out.println("currPosition: " + currPosition + " value : " + alignment_WordWindowHM.get(currPosition));
 		try{
-			String[] split = alignment_WordWindowHM.get(currPosition).split(" ");
-			spanGraphCurr.setStartEndSentIndex(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+			if(alignment_WordWindowHM.get(currPosition) != null){
+				String[] split = alignment_WordWindowHM.get(currPosition).split(" ");
+				spanGraphCurr.setStartEndSentIndex(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+			}
 			visitedNodesSet.add(spanGraphCurr);
 			
 			for(int i=0, ctr=0;i<spanGraphCurr.childEdge.size();i++, ctr++){

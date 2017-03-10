@@ -1326,19 +1326,6 @@
             :ARG1 (g / grown-up)
             :degree (g2 / great)))
 
-# ::id lpp_1943.36 ::date 2012-07-24T10:10:29 ::annotator ISI-AMR-05 ::preferred
-# ::snt Chapter 2 .
-# ::zh II。
-# ::save-date Tue Apr 9, 2013 ::file lpp_1943_36.txt
-# ::tok Chapter 2 .
-# ::alignments 0-1|0 1-2|0.0 ::annotator Aligner v.02 ::date 2017-01-31T13:28:15.401
-# ::node	0	chapter	0-1
-# ::node	0.0	2	1-2
-# ::root	0	chapter
-# ::edge	chapter	mod	2	0	0.0	
-(c / chapter
-  :mod 2)
-
 # ::id lpp_1943.37 ::date 2012-07-24T10:10:35 ::annotator ISI-AMR-05 ::preferred
 # ::snt So I lived my life alone , without anyone that I could really talk to , until I had an accident with my plane in the Desert of Sahara , six years ago .
 # ::zh 我就这样孤独地生活着，没有一个能真正谈得来的人，一直到六年前在撒哈拉沙漠上发生了那次故障。
@@ -3600,19 +3587,6 @@
                  :mod (l / little))
          :manner (t / that)))
 
-# ::id lpp_1943.103 ::date 2012-07-31T07:37:59 ::annotator ISI-AMR-05 ::preferred
-# ::snt Chapter 3 .
-# ::zh III。
-# ::save-date Mon Apr 15, 2013 ::file lpp_1943_103.txt
-# ::tok Chapter 3 .
-# ::alignments 0-1|0 1-2|0.0 ::annotator Aligner v.02 ::date 2017-01-31T13:28:15.901
-# ::node	0	chapter	0-1
-# ::node	0.0	3	1-2
-# ::root	0	chapter
-# ::edge	chapter	mod	3	0	0.0	
-(c2 / chapter
-  :mod 3)
-
 # ::id lpp_1943.104 ::date 2012-07-31T07:38:33 ::annotator ISI-AMR-05 ::preferred
 # ::snt It took me a long time to learn where he came from .
 # ::zh 我费了好长时间才弄清楚他是从哪里来的。
@@ -4864,19 +4838,6 @@
             :manner (s / sad-02
                   :quant (h2 / hint)
                   :ARG1-of (p / possible-01))))
-
-# ::id lpp_1943.146 ::date 2012-07-31T11:20:57 ::annotator ISI-AMR-05 ::preferred
-# ::snt Chapter 4 .
-# ::zh IV。
-# ::save-date Tue Apr 16, 2013 ::file lpp_1943_146.txt
-# ::tok Chapter 4 .
-# ::alignments 0-1|0 1-2|0.0 ::annotator Aligner v.02 ::date 2017-01-31T13:28:16.152
-# ::node	0	chapter	0-1
-# ::node	0.0	4	1-2
-# ::root	0	chapter
-# ::edge	chapter	mod	4	0	0.0	
-(c / chapter
-  :mod 4)
 
 # ::id lpp_1943.147 ::date 2012-07-31T11:21:36 ::annotator ISI-AMR-05 ::preferred
 # ::snt I had thus learned a second fact of great importance : this was that the planet the little prince came from was scarcely any larger than a house !

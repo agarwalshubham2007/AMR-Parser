@@ -10,10 +10,12 @@ public class Aligner {
 		HashMap<String,String> alignment_WordWindowHM = new HashMap<>();
 		
 		for(String line : instanceAlignmentText){
+			System.out.println("Analyzing - " + line);
 			String[] splitLine = line.split("\\s+");
 			String[] lastPart = splitLine[splitLine.length-1].split("-");
 			if(lastPart.length==2 && isInteger(lastPart[0]) && isInteger(lastPart[1])){
 				alignment_WordWindowHM.put(splitLine[2], lastPart[0] + " " + lastPart[1]);
+				System.out.println("CHECK : " + splitLine[2] + " -> " + lastPart[0] + " " + lastPart[1]);
 			}
 			else{
 				alignment_WordWindowHM.put(splitLine[2], "-1 -1");

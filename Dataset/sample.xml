@@ -1,25 +1,36 @@
 <?xml version="1.0"?>
 <amrset name="le-petit-prince" version="1.6" date="2016-03-14" corpus="The Little Prince, a novel by Antoine Saint-Exupery">
   <sntamr>
-    <sentence id="lpp_1943.46">" Draw me a sheep ! "</sentence>
-    <amr date="2012-07-24T11:30:39">
-(d / draw-01
-  :ARG0 (y / you)
-  :ARG1 (s / sheep)
-  :ARG2 (i / i)
-  :mode imperative)
+    <sentence id="lpp_1943.62">Absurd as it might seem to me , a thousand miles from any human habitation and in danger of death , I took out of my pocket a sheet of paper and my fountain - pen .</sentence>
+    <amr date="2012-07-24T12:49:28">
+(t / take-01
+      :ARG0 (i / i
+            :location (r / relative-position
+                  :op1 (p5 / place
+                        :mod (a3 / any)
+                        :ARG1-of (i2 / inhabit-01
+                              :ARG0 (h / human)))
+                  :quant (d / distance-quantity :quant 1000
+                        :unit (m / mile))
+                  :direction (a2 / away))
+            :ARG1-of (e / endanger-01
+                  :ARG0 (d2 / die-01
+                        :ARG1 i)))
+      :ARG1 (a / and
+            :op1 (p / paper
+                  :quant (s / sheet :quant 1))
+            :op2 (p2 / pen
+                  :mod (f / fountain)
+                  :poss i))
+      :ARG2 (p3 / pocket
+            :poss i)
+      :concession (p4 / possible-01
+            :ARG1 (s2 / seem-01
+                  :ARG1 (a4 / absurd)
+                  :ARG2 i)))
     </amr>
-  </sntamr>
-  <sntamr>
-    <sentence id="lpp_1943.1">John went to movie and bought popcorn for his gf.</sentence>
-    <amr date="2012-06-07T17:06:07">
-(p / ponder-01
-      :ARG0 (i / i)
-      :ARG1 (a / adventure
-            :location (j / jungle))
-      :ARG1-of (d / deep-02)
-      :time (t / then))
-    </amr>
+    <note>auto-repair-amr 2015-05-12T16:25:17 map-concept:take-11->take-out-11</note>
+    <note>auto-repair-amr 2015-06-11T19:52:02 map-concept:possible->possible-01:domain->ARG1</note>
   </sntamr>
 </amrset>
  

@@ -1,0 +1,81 @@
+# ::id lpp_1943.62 ::date 2012-07-24T12:49:28 ::annotator ISI-AMR-05 ::preferred
+# ::snt Absurd as it might seem to me , a thousand miles from any human habitation and in danger of death , I took out of my pocket a sheet of paper and my fountain - pen .
+# ::zh 在这旷无人烟的沙漠上，面临死亡的危险的情况下，尽管这样的举动使我感到十分荒诞，我还是掏出了一张纸和一支钢笔。
+# ::save-date Mon May 25, 2015 ::file lpp_1943_62.txt
+# ::tok Absurd as it might seem to me , a thousand miles from any human habitation and in danger of death , I took out of my pocket a sheet of paper and my fountain - pen .
+# ::alignments 22-23|0 4-5|0.3.0 0-1|0.3.0.0 26-27|0.2 15-16|0.1 35-36|0.1.1 33-34|0.1.1.0 30-31|0.1.0 28-29|0.1.0.0 21-22|0.0 19-20|0.0.1.0 12-13|0.0.0.0.0 13-14|0.0.0.0.1.0 10-11|0.0.0.1+0.0.0.1.1 ::annotator Aligner v.02 ::date 2017-01-31T13:28:15.671
+# ::node	0	take-01	22-23
+# ::node	0.0	i	21-22
+# ::node	0.0.0	relative-position	
+# ::node	0.0.0.0	place	
+# ::node	0.0.0.0.0	any	12-13
+# ::node	0.0.0.0.1	inhabit-01	
+# ::node	0.0.0.0.1.0	human	13-14
+# ::node	0.0.0.1	distance-quantity	10-11
+# ::node	0.0.0.1.0	1000	
+# ::node	0.0.0.1.1	mile	10-11
+# ::node	0.0.0.2	away	
+# ::node	0.0.1	endanger-01	
+# ::node	0.0.1.0	die-01	19-20
+# ::node	0.1	and	15-16
+# ::node	0.1.0	paper	30-31
+# ::node	0.1.0.0	sheet	28-29
+# ::node	0.1.0.0.0	1	
+# ::node	0.1.1	pen	35-36
+# ::node	0.1.1.0	fountain	33-34
+# ::node	0.2	pocket	26-27
+# ::node	0.3	possible-01	
+# ::node	0.3.0	seem-01	4-5
+# ::node	0.3.0.0	absurd	0-1
+# ::root	0	take-01
+# ::edge	and	op1	paper	0.1	0.1.0	
+# ::edge	and	op2	pen	0.1	0.1.1	
+# ::edge	die-01	ARG1	i	0.0.1.0	0.0	
+# ::edge	distance-quantity	quant	1000	0.0.0.1	0.0.0.1.0	
+# ::edge	distance-quantity	unit	mile	0.0.0.1	0.0.0.1.1	
+# ::edge	endanger-01	ARG0	die-01	0.0.1	0.0.1.0	
+# ::edge	i	ARG1-of	endanger-01	0.0	0.0.1	
+# ::edge	i	location	relative-position	0.0	0.0.0	
+# ::edge	inhabit-01	ARG0	human	0.0.0.0.1	0.0.0.0.1.0	
+# ::edge	paper	quant	sheet	0.1.0	0.1.0.0	
+# ::edge	pen	mod	fountain	0.1.1	0.1.1.0	
+# ::edge	pen	poss	i	0.1.1	0.0	
+# ::edge	place	ARG1-of	inhabit-01	0.0.0.0	0.0.0.0.1	
+# ::edge	place	mod	any	0.0.0.0	0.0.0.0.0	
+# ::edge	pocket	poss	i	0.2	0.0	
+# ::edge	possible-01	ARG1	seem-01	0.3	0.3.0	
+# ::edge	relative-position	direction	away	0.0.0	0.0.0.2	
+# ::edge	relative-position	op1	place	0.0.0	0.0.0.0	
+# ::edge	relative-position	quant	distance-quantity	0.0.0	0.0.0.1	
+# ::edge	seem-01	ARG1	absurd	0.3.0	0.3.0.0	
+# ::edge	seem-01	ARG2	i	0.3.0	0.0	
+# ::edge	sheet	quant	1	0.1.0.0	0.1.0.0.0	
+# ::edge	take-01	ARG0	i	0	0.0	
+# ::edge	take-01	ARG1	and	0	0.1	
+# ::edge	take-01	ARG2	pocket	0	0.2	
+# ::edge	take-01	concession	possible-01	0	0.3	
+(t / take-01
+      :ARG0 (i / i
+            :location (r / relative-position
+                  :op1 (p5 / place
+                        :mod (a3 / any)
+                        :ARG1-of (i2 / inhabit-01
+                              :ARG0 (h / human)))
+                  :quant (d / distance-quantity :quant 1000
+                        :unit (m / mile))
+                  :direction (a2 / away))
+            :ARG1-of (e / endanger-01
+                  :ARG0 (d2 / die-01
+                        :ARG1 i)))
+      :ARG1 (a / and
+            :op1 (p / paper
+                  :quant (s / sheet :quant 1))
+            :op2 (p2 / pen
+                  :mod (f / fountain)
+                  :poss i))
+      :ARG2 (p3 / pocket
+            :poss i)
+      :concession (p4 / possible-01
+            :ARG1 (s2 / seem-01
+                  :ARG1 (a4 / absurd)
+                  :ARG2 i)))

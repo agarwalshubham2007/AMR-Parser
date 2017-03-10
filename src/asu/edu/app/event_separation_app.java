@@ -43,6 +43,7 @@ public class event_separation_app {
     	File inputFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/amr-bank-v1.6.xml");
     	
     	File amrAlignedFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/amr-bank-v1.6-aligned.txt");
+//    	File amrAlignedFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/sample-aligned.txt");
     	FileInputStream fis = new FileInputStream(amrAlignedFile);
     	BufferedReader br = new BufferedReader(new InputStreamReader(fis));
     	
@@ -94,6 +95,9 @@ public class event_separation_app {
                 ParseTree ptObj = new ParseTree();
                 ptObj.makeParseTreeWrapper(root, amr, alias_TreeNodeHM);
                 
+//                printParseTree(root);
+//                System.exit(0);
+                
 //                AmrProperties amrPropObj = new AmrProperties();
 //                amrPropObj.getAllAmrRelationsInCorpus(root, amrRelationSet);
                 
@@ -111,8 +115,7 @@ public class event_separation_app {
                 
                 //print parse tree after coref
                 HashSet<TreeNode> visitedNodesSet = new HashSet<>();
-//                printParseTreeAfterCoref(root, null, visitedNodesSet);
-                
+                printParseTreeAfterCoref(root, null, visitedNodesSet);
                 
                 // storing verb POS in sentence
                 // but it first finds all POS in the sentence and then filters the verbs
@@ -141,7 +144,7 @@ public class event_separation_app {
                 // end span graph block
                 
                 System.out.println("Continue(Y/N)");
-                System.in.read();
+//                System.in.read();
                 
             }
         }
@@ -164,6 +167,7 @@ public class event_separation_app {
         	System.out.println(root.childNode.get(i).word);
 		
 		System.out.println();
+		visitedNodesSet.add(root);
 		
 		for(int i=0;i<root.childNode.size();i++)
         	printSpanGraph(root.childNode.get(i), visitedNodesSet);	

@@ -532,13 +532,6 @@
     </amr>
   </sntamr>
   <sntamr>
-    <sentence id="lpp_1943.36">Chapter 2 .</sentence>
-    <amr date="2012-07-24T10:10:29">
-(c / chapter
-  :mod 2)
-    </amr>
-  </sntamr>
-  <sntamr>
     <sentence id="lpp_1943.37">So I lived my life alone , without anyone that I could really talk to , until I had an accident with my plane in the Desert of Sahara , six years ago .</sentence>
     <amr date="2012-07-24T10:10:35">
 (c / cause-01
@@ -1478,13 +1471,6 @@
     </amr>
   </sntamr>
   <sntamr>
-    <sentence id="lpp_1943.103">Chapter 3 .</sentence>
-    <amr date="2012-07-31T07:37:59">
-(c2 / chapter
-  :mod 3)
-    </amr>
-  </sntamr>
-  <sntamr>
     <sentence id="lpp_1943.104">It took me a long time to learn where he came from .</sentence>
     <amr date="2012-07-31T07:38:33">
 (t2 / take-10
@@ -2029,13 +2015,6 @@
                   :ARG1-of (p / possible-01))))
     </amr>
     <note>auto-repair-amr 2015-06-11T19:52:02 map-concept:possible->possible-01:domain->ARG1</note>
-  </sntamr>
-  <sntamr>
-    <sentence id="lpp_1943.146">Chapter 4 .</sentence>
-    <amr date="2012-07-31T11:20:57">
-(c / chapter
-  :mod 4)
-    </amr>
   </sntamr>
   <sntamr>
     <sentence id="lpp_1943.147">I had thus learned a second fact of great importance : this was that the planet the little prince came from was scarcely any larger than a house !</sentence>
