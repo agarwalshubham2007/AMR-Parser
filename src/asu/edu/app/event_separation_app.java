@@ -95,7 +95,7 @@ public class event_separation_app {
                 ParseTree ptObj = new ParseTree();
                 ptObj.makeParseTreeWrapper(root, amr, alias_TreeNodeHM);
                 
-//                printParseTree(root);
+                printParseTree(root);
 //                System.exit(0);
                 
 //                AmrProperties amrPropObj = new AmrProperties();
@@ -110,6 +110,10 @@ public class event_separation_app {
 //                	System.out.print(key +" : " +alias_TreeNodeHM.get(key).word + " | ");
                 
                 // coref resolution
+                System.out.println("/////////////////////////////");
+                for(String s : alias_TreeNodeHM.keySet())
+                	System.out.println(s);
+                System.out.println("/////////////////////////////");
                 AmrCoreference amrCorefObj = new AmrCoreference();
                 amrCorefObj.resolveCorefInAmr(root, alias_TreeNodeHM);
                 
@@ -202,7 +206,7 @@ public class event_separation_app {
         	System.out.println(root.childEdge.get(i));
 		System.out.println("# Children nodes:"+ root.childNode.size());
 		for(int i=0;i<root.childNode.size();i++)
-        	System.out.println(root.childNode.get(i).word);
+        	System.out.println(root.childNode.get(i).alias + " / " + root.childNode.get(i).word);
 		
 		System.out.println();
 		

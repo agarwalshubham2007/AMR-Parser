@@ -3,6 +3,7 @@ package asu.edu.event_separation;
 import java.util.HashMap;
 
 import asu.edu.util.TreeNode;
+import asu.edu.util.UtilityFunctions;
 
 
 public class AmrCoreference {
@@ -19,7 +20,7 @@ public class AmrCoreference {
 	}
 
 	private boolean isCoReferencee(TreeNode node) {
-		if(node.alias != null && node.word == null)
+		if(node.alias != null && node.word == null && !UtilityFunctions.isInteger(node.alias) && !node.alias.equals("-"))
 			return true;
 		return false;
 	} 

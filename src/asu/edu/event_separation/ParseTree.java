@@ -136,7 +136,7 @@ public class ParseTree extends event_separation_app{
 	
 	// this method checks from the list of relations(corefRelationConstants) that cannot contribute to co-reference in amr.
 	private TreeNode makeCorefNode(String relation, String alias) {
-		if(!Constants.corefRelationConstants.contains(relation)){
+		if(!Constants.corefRelationConstants.contains(relation) && !alias.startsWith("\"")){
 			TreeNode node = new TreeNode();
 			node.alias = alias;
 			node.frameNum = -1;
@@ -188,7 +188,7 @@ public class ParseTree extends event_separation_app{
 			alias_TreeNodeHM.put(alias, root);
 	}
 
-	private static boolean isNumber(char charAt) {
+	public static boolean isNumber(char charAt) {
 		switch(charAt){
 		case '0':
 		case '1':
