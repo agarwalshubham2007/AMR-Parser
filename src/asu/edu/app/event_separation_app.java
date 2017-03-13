@@ -34,39 +34,58 @@ import asu.edu.util.TreeNode;
 public class event_separation_app {
 	public static int leftPos = 0;
 	public static int rightPos = 1;
+	private File inputFile;
+	
+	// this set holds all the relations in the amr corpus
+    private HashSet<String> amrRelationSet;
+    private HashSet<TreeNode> visitedNodesSet;
+    private ArrayList<String> instanceAlignmentText;
+    
+    //json file handling declarations
+    private File amrAlignedFile;
+	private FileInputStream fis;
+	private BufferedReader br;
+    private Document doc;
+    private ObjectMapper mapper;
+    private JsonNode sentencesJson;
+    private DocumentBuilderFactory dbFactory;
+    private DocumentBuilder dBuilder;
+	
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException{
-		init();
+		event_separation_app evSep = new event_separation_app();
+		evSep.init();
 	}
 
-	private static void init() throws ParserConfigurationException, SAXException, IOException {
-//    	File inputFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/sample.xml");
-    	File inputFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/amr-bank-v1.6.xml");
+	private void init() throws ParserConfigurationException, SAXException, IOException {
+//    	this.inputFile = new File(Constants.sampleAMR);
+    	this.inputFile = new File(Constants.littlePrinceAMR);
     	
-    	File amrAlignedFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/amr-bank-v1.6-aligned.txt");
-//    	File amrAlignedFile = new File("/Users/Shubham/Documents/workspace/AMR_Parser/Dataset/sample-aligned.txt");
-    	FileInputStream fis = new FileInputStream(amrAlignedFile);
-    	BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+    	this.amrAlignedFile = new File(Constants.littlePrinceAMRAligned);
+//    	this.amrAlignedFile = new File(Constants.sampleAMRAligned);
+    	this.fis = new FileInputStream(amrAlignedFile);
+    	this.br = new BufferedReader(new InputStreamReader(fis));
+    	this.amrRelationSet = new HashSet<>();
+    	this.visitedNodesSet = new HashSet<>();
+    	this.instanceAlignmentText = new ArrayList<>();
     	
-    	//test code section
+    	this.mapper = new ObjectMapper();
+        this.sentencesJson = mapper.createArrayNode();
     	
-    	//test code section end
-    	
-    	
-    	ObjectMapper mapper = new ObjectMapper();
-        JsonNode sentencesJson = mapper.createArrayNode();
-    	
-    	
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(inputFile);
+        this.dbFactory = DocumentBuilderFactory.newInstance();
+        this.dBuilder = dbFactory.newDocumentBuilder();
+        this.doc = dBuilder.parse(inputFile);
         doc.getDocumentElement().normalize();
-        System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+        
+        this.parse_align_eventSeparate();
+                
+	}
+	
+	private void parse_align_eventSeparate() throws IOException {
+		
+		System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
         NodeList nList = doc.getElementsByTagName("sntamr");
-        
-        // this set holds all the relations in the amr corpus
-        HashSet<String> amrRelationSet = new HashSet<>();
-        
-        for (int temp = 0; temp < nList.getLength(); temp++) {
+		
+		for (int temp = 0; temp < nList.getLength(); temp++) {
         	Node nNode = nList.item(temp);
             System.out.println("\nCurrent Element :" + nNode.getNodeName());
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -118,7 +137,7 @@ public class event_separation_app {
                 amrCorefObj.resolveCorefInAmr(root, alias_TreeNodeHM);
                 
                 //print parse tree after coref
-                HashSet<TreeNode> visitedNodesSet = new HashSet<>();
+                this.visitedNodesSet.clear();
                 printParseTreeAfterCoref(root, null, visitedNodesSet);
                 
                 // storing verb POS in sentence
@@ -127,7 +146,7 @@ public class event_separation_app {
 //                spObj.getSentencePOS(sentence);
                 
                 // span graph
-                ArrayList<String> instanceAlignmentText = new ArrayList<>();
+                this.instanceAlignmentText.clear();
                 String line = null;
                 while((line = br.readLine()) != null){
                 	if(!line.equals("")){
@@ -154,9 +173,8 @@ public class event_separation_app {
         }
         
 //        System.out.println(amrRelationSet);
-                
 	}
-	
+
 	private static void printSpanGraph(TreeNode root, HashSet<TreeNode> visitedNodesSet) {
 		if(root==null || visitedNodesSet.contains(root))
 			return;
